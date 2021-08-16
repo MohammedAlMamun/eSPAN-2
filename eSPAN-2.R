@@ -19,16 +19,17 @@
 
 #2 - Read and process fastq files into sorted bam files
 
-#Pol2 samples are used here as example
+#Pol2 samples are used here as example and 
+#these fastq files are available at    https://ifu.cib.csic.es/index.php/s/T7tZ88CwCbY5ECB?path=%2FPilotExp
 
-Input_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_Input_R1.fastq"
-Input_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_Input_R2.fastq"
-ChIP_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_ChIP_R1.fastq"
-ChIP_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_ChIP_R2.fastq"
-BrDU_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_BrDU_R1.fastq"
-BrDU_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_BrDU_R2.fastq"
-eSPAN_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_eSPAN_R1.fastq"
-eSPAN_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_eSPAN_R2.fastq"
+Input_R1 <- "/Users/.../.../.../Pol2_Input_R1.fastq"
+Input_R2 <- "/Users/.../.../.../Pol2_Input_R2.fastq"
+ChIP_R1 <- "/Users/.../.../.../Pol2_ChIP_R1.fastq"
+ChIP_R2 <- "/Users/.../.../.../Pol2_ChIP_R2.fastq"
+BrDU_R1 <- "/Users/.../.../.../Pol2_BrDU_R1.fastq"
+BrDU_R2 <- "/Users/.../.../.../Pol2_BrDU_R2.fastq"
+eSPAN_R1 <- "/Users/.../.../.../Pol2_eSPAN_R1.fastq"
+eSPAN_R2 <- "/Users/.../.../.../Pol2_eSPAN_R2.fastq"
 
 #
 
