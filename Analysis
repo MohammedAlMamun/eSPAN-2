@@ -1,0 +1,55 @@
+Pre-Analysis
+
+
+  ##0 - Download the necessary softwares and put the executables in usr/local/bin in mac
+  
+  #R              https://cran.rediris.es/
+  #RStudio        https://www.rstudio.com/products/rstudio/download/#download
+  #bowtie2        https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.4.4/ (Download Latest Version)
+  #samtools       http://www.htslib.org/download/
+  #bedtools       https://bedtools.readthedocs.io/en/latest/content/installation.html
+  #picardtools    https://broadinstitute.github.io/picard/
+  #macs2          https://pypi.org/project/MACS2/
+  
+  ##1 - Prepare the indexed reference 
+  
+  #download the reference e.g. fastq of S288C reference file 
+  #https://www.ncbi.nlm.nih.gov/genome/15?genome_assembly_id=22535
+  #build the index following the linked instructions below
+  #http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#the-bowtie2-build-indexer
+  
+  ##2 - Read fastq files
+  
+  Input_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_Input_R1.fastq"
+  Input_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_Input_R2.fastq"
+  ChIP_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_ChIP_R1.fastq"
+  ChIP_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_ChIP_R2.fastq"
+  BrDU_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_BrDU_R1.fastq"
+  BrDU_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_BrDU_R2.fastq"
+  eSPAN_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_eSPAN_R1.fastq"
+  eSPAN_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_eSPAN_R2.fastq"
+  
+  #
+  
+  ##Quality check of fastqs'
+  
+  Pro_1 <- unlist(strsplit(basename(Input_R1), split='_', fixed=TRUE))[[1]] #extract protein name
+  
+  suppressWarnings(dir.create(paste0("~/Desktop/", Pro_1, "/", "QR")))
+  
+  fls = c(Input_R1, Input_R2, ChIP_R1, ChIP_R2, BrDU_R1, BrDU_R2, eSPAN_R1, eSPAN_R2)
+  
+  names(fls) = sub(".fastq", "", basename(fls))
+  
+  library(ShortRead)
+  qas = lapply(seq_along(fls),
+               function(i, fls) qa(readFastq(fls[i]), names(fls)[i]),
+               fls)
+  qa = do.call(rbind, qas)
+  rpt = report(qa, dest = paste0("~/Desktop/", Pro_1, "/", "QR", "/", Pro_1, ".html"))
+  
+  #
+  
+  suppressWarnings(dir.create(paste0("~/Desktop/", Pro_1)))   #create directory named with the protein in the Desktop
+  
+  ###Data Processing
