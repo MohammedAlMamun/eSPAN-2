@@ -19,6 +19,8 @@
 
 #2 - Read and process fastq files into sorted bam files
 
+#Pol2 samples are used here as example
+
 Input_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_Input_R1.fastq"
 Input_R2 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_Input_R2.fastq"
 ChIP_R1 <- "/Users/mohammed/Desktop/Analysis/Data/PilotExp/Raw/Pol2_ChIP_R1.fastq"
